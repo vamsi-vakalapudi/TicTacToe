@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Barlow Semi Condensed -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Skill Safari | Rock, Paper, Scissors</title>
+
+</head>
+<body>
+  
+  <!-- Add the needed pixel widths for correct functioning of game
+    Desktop: 1492px;
+    mobile: 375px;
+  -->
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="head">
+        <h4 class="text-uppercase p-4 font-weight-bold w-75">Rules</h4>
+        <img src="images/icon-close.svg" class="close">
+      </div>
+      <img src="images/image-rules.svg" alt="rule-triangle" width="350" height="350" class="mx-auto">
+    </div>  
+  </div>
+
+  <div class="start-page">
+    <div class="thick-border mx-10 mt-5">
+      <img src="images/logo.svg" width="200px" height="140px" class="p-4">
+      <div class="float-right m-2 score-head">
+        <div class="overlay"></div>
+        <div class="score-card">
+          <h6 class="text-uppercase score-color">score</h6>
+          <h5 class="display-3 score-value mt-n3 ">0</h5>
+        </div>
+      </div>
+    </div>
+    <div class="page-content-1 d-block" id="p1">
+      <img src="images/bg-triangle.svg" class="item-structure mx-auto d-block mt-10">
+      <div class="choose-rock position-relative" id="clickEvent">
+        <div class="overlay-1"></div>
+        <img src="/images/icon-rock.svg" class="icon-rock">
+      </div>
+      <div class="choose-paper position-relative" id="clickEvent">
+        <div class="overlay-2"></div>
+        <img src="/images/icon-paper.svg" class="icon-paper">
+      </div>
+      <div class="choose-scissor position-relative" id="clickEvent">
+        <div class="overlay-3"></div>
+        <img src="/images/icon-scissors.svg" class="icon-scissor">
+      </div>
+    </div>
+    <div class="page-content-2 d-none" id="p2">
+      <div class="heading font-color d-flex text-center text-light container mt-5">
+        <h5 class="text-uppercase w-50 col-6">you picked</h5>
+        <h5 class="text-uppercase w-50 col-6">the house picked</h5>
+      </div>
+      <div class="rock-game d-none position-relative" id="myChoice">
+        <div class="overlay-a"></div>
+        <img src="/images/icon-rock.svg" class="rock-on-show">
+      </div>
+      <div class="scissor-game d-none position-relative" id="myChoice">
+        <div class="overlay-b"></div>
+        <img src="/images/icon-scissors.svg" class="scissor-on-show">
+      </div>
+      <div class="paper-game d-none position-relative" id="myChoice">
+        <div class="overlay-c"></div>
+        <img src="/images/icon-paper.svg" class="paper-on-show">
+      </div>
+      <div class="overlay-new"></div>
+      <div class="rock-play d-none position-relative" id="comChoice">
+        <div class="overlay-new1"></div>
+        <img src="/images/icon-rock.svg" class="rock-by-com">
+      </div>
+      <div class="scissor-play d-none position-relative" id="comChoice">
+        <div class="overlay-new2"></div>
+        <img src="/images/icon-scissors.svg" class="scissor-by-com">
+      </div>
+      <div class="paper-play d-none position-relative" id="comChoice">
+      <div class="overlay-new3"></div>
+      <img src="/images/icon-paper.svg" class="paper-by-com">
+    
+      </div>
+      <div class="btn-store text-center mt-10">
+        <h2 id="game-status" class=""></h2>
+        <button id="try-again" class="btn btn-large btn-light">Try again</button>
+      </div>
+    </div>
+    <div class="btn-container mr-5 text-right fixed-bottom">
+      <button id="myBtn" class="btn btn-outline-light btn-lg mb-5">Rules</button>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
